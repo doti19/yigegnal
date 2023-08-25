@@ -5,6 +5,7 @@ import {RouterModule, Routes} from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import * as $ from 'jquery';
 
 import {fakeBackendProvider} from '@shared/_helpers';
 import {JwtInterceptor, ErrorInterceptor} from '@shared/_helpers';
@@ -16,6 +17,21 @@ import { MainFooterComponent } from './shared/layout/main-footer/main-footer.com
 import { MainHeaderComponent } from './shared/layout/main-header/main-header.component';
 import { MainSidebarComponent } from './shared/layout/main-sidebar/main-sidebar.component';
 import { AlertComponent } from './shared/components/alert/alert.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { PlanComponent } from './pages/plan/plan.component';
+import { PlanRequestComponent } from './pages/plan-request/plan-request.component';
+import { LandingPageComponent } from './pages/landing-page/landing-page.component';
+import { SettingComponent } from './pages/setting/setting.component';
+import { SearchComponent } from './pages/search/search.component';
+import { AddFoundItemComponent } from './pages/add-found-item/add-found-item.component';
+import { RegisterEnquiryComponent } from './pages/register-enquiry/register-enquiry.component';
+import { PendingComponent } from './pages/pending/pending.component';
+import { DeliveredComponent } from './pages/delivered/delivered.component';
+import { ProfitAnalysisComponent } from './pages/profit-analysis/profit-analysis.component';
+import { SupportComponent } from './pages/support/support.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { StoreModule } from '@ngrx/store';
+import { HeaderTitleService } from '@shared/_services/headerTitle.service';
 
 
 
@@ -31,6 +47,18 @@ import { AlertComponent } from './shared/components/alert/alert.component';
     MainSidebarComponent,
     // LoginComponent,
     AlertComponent,
+    DashboardComponent,
+    PlanComponent,
+    PlanRequestComponent,
+    LandingPageComponent,
+    SettingComponent,
+    SearchComponent,
+    AddFoundItemComponent,
+    RegisterEnquiryComponent,
+    PendingComponent,
+    DeliveredComponent,
+    ProfitAnalysisComponent,
+    SupportComponent,
     
     
   
@@ -40,6 +68,8 @@ import { AlertComponent } from './shared/components/alert/alert.component';
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
+    NgxPaginationModule,
+    StoreModule.forRoot({}),
     // RouterModule.forRoot(appRoutes)
   ],
   providers: [
@@ -47,8 +77,9 @@ import { AlertComponent } from './shared/components/alert/alert.component';
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
 
     // provider used to create fake backend
-    fakeBackendProvider
+    fakeBackendProvider,
+    HeaderTitleService
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { } 
