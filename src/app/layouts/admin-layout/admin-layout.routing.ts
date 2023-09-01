@@ -2,12 +2,15 @@ import { Routes } from '@angular/router';
 
 import { DashboardComponent } from '../../dashboard/dashboard.component';
 import { UserProfileComponent } from '../../user-profile/user-profile.component';
-import { TableListComponent } from '../../table-list/table-list.component';
-import { TypographyComponent } from '../../typography/typography.component';
-import { IconsComponent } from '../../icons/icons.component';
-import { MapsComponent } from '../../maps/maps.component';
-import { NotificationsComponent } from '../../notifications/notifications.component';
-import { UpgradeComponent } from '../../upgrade/upgrade.component';
+
+import { SearchComponent } from '../../search/search.component';
+import { AddFoundItemComponent } from '../../add-found-item/add-found-item.component';
+import { InquiryComponent } from '../../inquiry/inquiry.component';
+import { PendingComponent } from '../../pending/pending.component';
+import { DeliveryComponent } from '../../delivery/delivery.component';
+import { ProfitAnalysisComponent } from '../../profit-analysis/profit-analysis.component';
+import { SupportComponent } from '../../support/support.component';
+import { SettingsComponent } from '../../settings/settings.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -53,11 +56,13 @@ export const AdminLayoutRoutes: Routes = [
     //     }]
     // }
     { path: 'dashboard',      component: DashboardComponent },
-    { path: 'user-profile',   component: UserProfileComponent },
-    { path: 'table-list',     component: TableListComponent },
-    { path: 'typography',     component: TypographyComponent },
-    { path: 'icons',          component: IconsComponent },
-    { path: 'maps',           component: MapsComponent },
-    { path: 'notifications',  component: NotificationsComponent },
-    { path: 'upgrade',        component: UpgradeComponent },
+    { path: 'search',   component: SearchComponent },
+    { path: 'add-found-item',   component: AddFoundItemComponent },
+    { path: 'inquiry',   component: InquiryComponent },
+    { path: 'pending',   component: PendingComponent },
+    { path: 'delivery',   component: DeliveryComponent },
+    { path: 'profit-analysis',   component: ProfitAnalysisComponent },
+    { path: 'settings',   component: SettingsComponent },
+    { path: 'support',   component: UserProfileComponent },
+ 
 ];

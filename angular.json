@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "material-dashboard-angular": {
+    "material-dashboard-angular2": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -49,7 +49,7 @@
                   "minify": false,
                   "inlineCritical": false
                 },
-                "fonts": true
+                "fonts": false
               },
               "outputHashing": "all",
               "sourceMap": false,
@@ -85,14 +85,14 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "material-dashboard-angular:build"
+            "browserTarget": "material-dashboard-angular2:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "material-dashboard-angular:build:production"
+              "browserTarget": "material-dashboard-angular2:build:production"
             },
             "development": {
-              "browserTarget": "material-dashboard-angular:build:development"
+              "browserTarget": "material-dashboard-angular2:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -100,11 +100,11 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "material-dashboard-angular:build"
+            "browserTarget": "material-dashboard-angular2:build"
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular-devkit/build-angular2:karma",
           "options": {
             "main": "src/test.ts",
             "karmaConfig": "./karma.conf.js",
@@ -143,8 +143,8 @@
         }
       }
     },
-    "material-dashboard-angular-e2e": {
-      "root": "",
+    "material-dashboard-angular2-e2e": {
+      "root": "e2e",
       "sourceRoot": "",
       "projectType": "application",
       "architect": {
@@ -152,7 +152,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "./protractor.conf.js",
-            "devServerTarget": "material-dashboard-angular:serve"
+            "devServerTarget": "material-dashboard-angular2:serve"
           }
         },
         "lint": {
@@ -167,11 +167,11 @@
       }
     }
   },
-  "defaultProject": "material-dashboard-angular",
+  
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",
-      "styleext": "scss"
+      "style": "scss"
     },
     "@schematics/angular:directive": {
       "prefix": "app"

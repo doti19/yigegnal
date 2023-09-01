@@ -5,18 +5,30 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminLayoutRoutes } from './admin-layout.routing';
 import { DashboardComponent } from '../../dashboard/dashboard.component';
 import { UserProfileComponent } from '../../user-profile/user-profile.component';
-import { TableListComponent } from '../../table-list/table-list.component';
-import { TypographyComponent } from '../../typography/typography.component';
-import { IconsComponent } from '../../icons/icons.component';
-import { MapsComponent } from '../../maps/maps.component';
-import { NotificationsComponent } from '../../notifications/notifications.component';
-import { UpgradeComponent } from '../../upgrade/upgrade.component';
+
+import { SearchComponent } from '../../search/search.component';
+import { AddFoundItemComponent } from '../../add-found-item/add-found-item.component';
+import { InquiryComponent } from '../../inquiry/inquiry.component';
+import { PendingComponent } from '../../pending/pending.component';
+import { DeliveryComponent } from '../../delivery/delivery.component';
+import { ProfitAnalysisComponent } from '../../profit-analysis/profit-analysis.component';
+import { SupportComponent } from '../../support/support.component';
+import { SettingsComponent } from '../../settings/settings.component';
+import { FilterTableComponent } from '../../filter-table/filter-table.component'  ;
+import { EditSearchResultDialogComponent } from '../../edit-search-result-dialog/edit-search-result-dialog.component';
+
+
+
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatRippleModule} from '@angular/material/core';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   imports: [
@@ -30,16 +42,27 @@ import {MatSelectModule} from '@angular/material/select';
     MatInputModule,
     MatSelectModule,
     MatTooltipModule,
+
+
+    MatPaginatorModule,
+    MatSortModule,
+    MatTableModule,
+    MatDialogModule
   ],
   declarations: [
     DashboardComponent,
     UserProfileComponent,
-    TableListComponent,
-    TypographyComponent,
-    IconsComponent,
-    MapsComponent,
-    NotificationsComponent,
-    UpgradeComponent,
+    SearchComponent,
+    AddFoundItemComponent,
+    InquiryComponent,
+    PendingComponent,
+    DeliveryComponent,
+    ProfitAnalysisComponent,
+    SupportComponent,
+    SettingsComponent,
+    FilterTableComponent,
+    EditSearchResultDialogComponent,
+
   ]
 })
 

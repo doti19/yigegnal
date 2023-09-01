@@ -1,0 +1,232 @@
+<div class="main-content">
+    <div class="container-fluid">
+    <div class="row">
+      <!-- BEGIN SEARCH RESULT -->
+      <div class="col-md-12">
+        <div class="grid search">
+          <div class="grid-body">
+            <div class="row">
+              <!-- BEGIN FILTERS -->
+              <div class="col-md-3">
+                <h2 class="grid-title"><i class="fa fa-filter"></i> Filters</h2>
+                <hr />
+  
+                <!-- BEGIN FILTER BY CATEGORY -->
+                <h4>By category:</h4>
+                <div class="checkbox">
+                  <label
+                    ><input
+                      type="checkbox"
+                      class="icheck"
+                      id="categoryCheckAll"
+                    />
+                    All</label
+                  >
+                </div>
+                <div class="checkbox">
+                  <label><input type="checkbox" class="icheck" /> Ids</label>
+                </div>
+                <div class="checkbox">
+                  <label
+                    ><input type="checkbox" class="icheck" /> Electronics</label
+                  >
+                </div>
+                <div class="checkbox">
+                  <label
+                    ><input type="checkbox" class="icheck" /> Documents</label
+                  >
+                </div>
+  
+                <!-- END FILTER BY CATEGORY -->
+  
+                <!-- BEGIN FILTER BY DELIVERED -->
+                <h4>Delivery Status</h4>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="DeliveryRadioBox"
+                    id="AllDelivery"
+                    checked
+                  />
+                  <label for="AllDelivery"> All </label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="DeliveryRadioBox"
+                    id="DeliveredRadioBox"
+                  />
+                  <label for="DeliveredRadioBox"> Delivered </label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="DeliveryRadioBox"
+                    id="NotDeliveredRadioBox"
+                  />
+                  <label for="NotDeliveredRadioBox"> Not Delivered </label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="DeliveryRadioBox"
+                    id="PendingRadioBox"
+                  />
+                  <label for="PendingRadioBox"> Pending </label>
+                </div>
+                <!-- END FILTER BY DELIVERED -->
+  
+                <div class="padding"></div>
+  
+                <!-- BEGIN FILTER BY DATE -->
+                <h4>By date:</h4>
+                Founded Date
+                <div
+                  class="input-group date form_date"
+                  data-date="2014-06-14T05:25:07Z"
+                  data-date-format="dd-mm-yyyy"
+                  data-link-field="dtp_input1"
+                >
+                  <input type="text" class="form-control" />
+                  <span class="input-group-addon bg-blue"
+                    ><i class="fa fa-th"></i
+                  ></span>
+                </div>
+                <input type="hidden" id="dtp_input1" value="" />
+  
+                <!-- END FILTER BY DATE -->
+  
+                <div class="padding"></div>
+  
+                <!-- BEGIN FILTER BY PRICE -->
+                <h4>By price:</h4>
+                Between
+                <div id="price1">$300</div>
+                to
+                <div id="price2">$800</div>
+                <div class="slider-primary">
+                  <div class="slider slider-horizontal" style="width: 152px">
+                    <div class="slider-track">
+                      <div
+                        class="slider-selection"
+                        style="left: 30%; width: 50%"
+                      ></div>
+                      <div class="slider-handle round" style="left: 30%"></div>
+                      <div class="slider-handle round" style="left: 80%"></div>
+                    </div>
+                    <div
+                      class="tooltip top hide"
+                      style="top: -30px; left: 50.1px"
+                    >
+                      <div class="tooltip-arrow"></div>
+                      <div class="tooltip-inner">300 : 800</div>
+                    </div>
+                    <input
+                      type="text"
+                      class="slider"
+                      value=""
+                      data-slider-min="0"
+                      data-slider-max="1000"
+                      data-slider-step="1"
+                      data-slider-value="[300,800]"
+                      data-slider-tooltip="hide"
+                    />
+                  </div>
+                </div>
+                <!-- END FILTER BY PRICE -->
+              </div>
+              <!-- END FILTERS -->
+              <!-- BEGIN RESULT -->
+              <div class="col-md-9">
+                <h2><i class="fa fa-file-o"></i> Result</h2>
+                <hr />
+                <!-- BEGIN SEARCH INPUT -->
+                <!-- <div class="input-group">
+                    <input type="text" class="form-control" value="web development">
+                    <span class="input-group-btn">
+                      <button class="btn btn-primary" type="button"><i class="fa fa-search"></i></button>
+                    </span>
+                  </div> -->
+
+                <div class="row">
+                  <div class="col-lg-12 card-margin">
+                    <div class="card search-form">
+                      <div class="card-body p-0">
+                        <form id="search-form">
+                          <div class="row">
+                            <div class="col-12">
+                              <div class="row no-gutters">
+                                <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                                  <select
+                                    class="form-control"
+                                    id="exampleFormControlSelect1"
+                                  >
+                                    <option>Expected Owner</option>
+                                    <option>Founded Place</option>
+                                  </select>
+                                </div>
+                                <div class="col-lg-8 col-md-6 col-sm-12 p-0">
+                                  <input
+                                    type="text"
+                                    placeholder="Search..."
+                                    class="form-control"
+                                    id="search"
+                                    name="search"
+                                  />
+                                </div>
+                                <div class="col-lg-1 col-md-3 col-sm-12 p-0">
+                                  <button
+                                    type="submit"
+                                    class="btn btn-light"
+                                    type="button"
+                                  >
+                                    <i class="fa fa-search"></i>
+                                    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg> -->
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+  
+                  <!-- END SEARCH INPUT -->
+                  <div class="col-lg-12">
+
+                      <app-filter-table></app-filter-table>
+                    </div>
+               
+</div>
+
+
+  
+                 
+                  <!-- BEGIN PAGINATION -->
+                  <!-- <ul class="pagination">
+                  <li class="disabled"><a href="#">«</a></li>
+                  <li class="active"><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">4</a></li>
+                  <li><a href="#">5</a></li>
+                  <li><a href="#">»</a></li>
+                </ul> -->
+                  <!-- END PAGINATION -->
+                </div>
+                <!-- END RESULT -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- END SEARCH RESULT -->
+      </div>
+    </div>
+  </div>
+
+  
