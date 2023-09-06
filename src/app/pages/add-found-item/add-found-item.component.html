@@ -1,0 +1,179 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="example-loading-shade"
+    *ngIf="isLoadingResults || gotError">
+ <mat-spinner color="warn" *ngIf="isLoadingResults"></mat-spinner>
+ <div class="example-rate-limit-reached" *ngIf="gotError">
+   There has been an error, retrieving data
+ </div>
+</div>  
+    <mat-tab-group mat-align-tabs="center" [(selectedIndex)]="tabIndex">
+      <mat-tab label="Item Details">
+        <div
+          class="login-wrapper tab-content-center"
+          fxLayout="row"
+          fxLayoutAlign="center center"
+        >
+          <mat-card class="box">
+            <mat-card-header>
+              <mat-card-title>Add Item</mat-card-title>
+            </mat-card-header>
+            <form class="example-form" [formGroup]="itemForm" (ngSubmit)="nextForm()">
+              <mat-card-content>
+                <mat-form-field>
+                  <mat-label>Catagory</mat-label>
+                  <mat-select formControlName="catagory">
+                    <mat-option [value]="catagory.name" *ngFor="let catagory of catagories"
+                      >{{ catagory.name }}
+                    </mat-option>
+                  </mat-select>
+                   <!-- error -->
+   <mat-error *ngIf="errorHandling('catagory', 'required', 'item')">
+   Please, select a <strong>Catagory</strong>
+ </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                  <input matInput formControlName="lostPlace" placeholder="Item Lost Place" />
+                </mat-form-field>
+                <mat-form-field>
+                  <input
+                    matInput
+                    [matDatepicker]="picker"
+                    placeholder="Item Lost Date"
+                    formControlName="lostDate"
+                    (dateChange)="itemdate($event, 'lostDate')"
+                  />
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                  <mat-hint>MM/DD/YYYY</mat-hint>
+              
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                  <textarea matInput formControlName="detail" placeholder="Additional Information" ></textarea>
+                </mat-form-field>
+              </mat-card-content>
+              <button mat-stroked-button color="accent" class="btn-block" [disabled]="!itemForm.valid">
+                Next
+              </button>
+            </form>
+          </mat-card>
+        </div>
+      </mat-tab>
+      <mat-tab label="Founder Details" [disabled]="!itemForm.valid">
+        <div
+          class="login-wrapper tab-content-center"
+          fxLayout="row"
+          fxLayoutAlign="center center"
+        >
+          <mat-card class="box">
+            <mat-card-header>
+              <mat-card-title>Add Founder</mat-card-title>
+            </mat-card-header>
+            <form class="example-form" [formGroup]="founderForm" (ngSubmit)="nextForm()" >
+              <mat-card-content>
+                <mat-form-field class="example-full-width">
+                  <input matInput formControlName="firstName" placeholder="First Name" />
+                   <!-- error -->
+   <mat-error *ngIf="errorHandling('firstName', 'required', 'founder')">
+    You must provide a<strong>First Name</strong>
+ </mat-error>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                  <input matInput formControlName="lastName" placeholder="Last Name" />
+                   <!-- error -->
+   <mat-error *ngIf="errorHandling('lastName', 'required', 'founder')">
+    You must provide a <strong>Last Name</strong>
+ </mat-error>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                  <input matInput formControlName="phoneNumber" placeholder="Phone Number" />
+                   <!-- error -->
+   <mat-error *ngIf="errorHandling('phoneNumber', 'required', 'founder')">
+    You must provide a <strong>Phone Number</strong>
+ </mat-error>
+ <mat-error *ngIf="founderForm.get('phoneNumber').hasError('pattern')">
+  Please enter a valid <strong>email</strong>
+  </mat-error>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                  <input matInput formControlName="email" placeholder="Email" />
+                   <!-- error -->
+                  
+                    <mat-error *ngIf="founderForm.get('email').hasError('email')">
+                      Please enter a valid <strong>email</strong>
+                 </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                  <input matInput formControlName="foundedPlace" placeholder="foundedPlace" />
+                  <mat-error *ngIf="errorHandling('foundedPlace', 'required', 'founder')">
+                    You must provide a <strong>Place</strong></mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                  <input
+                    matInput
+                    [matDatepicker]="picker2"
+                    placeholder="Founded Date"
+                    formControlName="foundedDate"
+                    (dateChange)="itemdate($event, 'foundedDate')"
+                  />
+                  <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                  <mat-datepicker #picker2></mat-datepicker>
+                  <mat-hint>MM/DD/YYYY</mat-hint>
+                  <mat-error *ngIf="errorHandling('foundedDate', 'required', 'founder')">
+                    You must provide a <strong>Date</strong></mat-error>
+                </mat-form-field>
+              </mat-card-content>
+              <button mat-stroked-button color="accent" type="submit" class="btn-block" [disabled]="!itemForm.valid || !founderForm.valid">
+                Next
+              </button>
+            </form>
+          </mat-card>
+        </div>
+        </mat-tab
+      >
+      <mat-tab label="Owner Details" [disabled]="!itemForm.valid || !founderForm.valid" >
+        <div
+          class="login-wrapper tab-content-center"
+          fxLayout="row"
+          fxLayoutAlign="center center"
+        >
+          <mat-card class="box">
+            <mat-card-header>
+              <mat-card-title>Add Owner</mat-card-title>
+              <mat-checkbox class="example-margin float-left" (change)="isownerKnown($event)" [(ngModel)]="ownerKnown">Owner Identified</mat-checkbox>
+            </mat-card-header>
+            <form class="example-form" [formGroup]="ownerForm" (ngSubmit)="submitForm()"  >
+              <mat-card-content>
+                
+                  <mat-form-field class="example-full-width">
+                    <input matInput formControlName="firstName1" placeholder="First Name" [disabled]="ownerKnown"/>
+                    <mat-error *ngIf="errorHandling('firstName1', 'required', 'owner')">
+                      You must provide a <strong>First Name</strong></mat-error>
+                  </mat-form-field>
+                  <mat-form-field class="example-full-width">
+                    <input matInput formControlName="lastName1" placeholder="Last Name" [disabled]="ownerKnown"/>
+                  </mat-form-field>
+                  <mat-form-field class="example-full-width">
+                    <input matInput formControlName="phoneNumber1" placeholder="Phone Number" [disabled]="ownerKnown"/>
+                  </mat-form-field>
+                  <mat-form-field class="example-full-width">
+                    <input matInput formControlName="email1" placeholder="Email" [disabled]="ownerKnown"/>
+                    <mat-error *ngIf="ownerForm.get('email1').hasError('email')">
+                      Please enter a valid <strong>email</strong>
+                 </mat-error>
+  </mat-form-field>
+              </mat-card-content>
+              <button mat-stroked-button color="accent" type="submit" class="btn-block" [disabled]="!itemForm.valid || !founderForm.valid || (ownerKnown && !ownerForm.valid) ">
+               Add Item
+              </button>
+            </form>
+          </mat-card>
+        </div>
+      </mat-tab>
+     
+    </mat-tab-group>
+  </div>
+</div>

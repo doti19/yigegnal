@@ -1,4 +1,5 @@
 import { Component} from '@angular/core';
+import { AuthService } from './shared/services/auth/auth.service';
 
 
 @Component({
@@ -7,5 +8,8 @@ import { Component} from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
+constructor(public authService: AuthService){}
+logout(){
+  this.authService.doLogout();
+}
 }

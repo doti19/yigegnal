@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>{{title}}</h1>
+<div mat-dialog-content>
+  <p>{{message}}</p>
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput [formControl]='name' [(ngModel)]="catagory" required>
+    
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onDismiss()">No Thanks</button>
+  <button mat-button (click)="onConfirm()" [disabled]="name.errors">Ok</button>
+</div>
