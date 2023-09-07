@@ -7,6 +7,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
+import { InquiryActionComponent } from './inquiry-dialogs/inquiry-action/inquiry-action.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
     FooterComponent,
     NavbarComponent,
     SidebarComponent,
+    
 
   ],
   exports: [

@@ -18,6 +18,7 @@ import { GetInquiries, Result } from 'app/shared/response-interfaces/get-inquiri
 import {DateTime} from 'luxon';
 import { catchError } from 'rxjs';
 import { AddInquiryDialogComponent } from 'app/shared/components/registration/add-inquiry-dialog/add-inquiry-dialog.component';
+import { InquiryActionComponent } from 'app/shared/components/inquiry-dialogs/inquiry-action/inquiry-action.component';
 
 
 
@@ -29,7 +30,8 @@ import { AddInquiryDialogComponent } from 'app/shared/components/registration/ad
   styleUrls: ['./inquiry.component.scss']
 })
 export class InquiryComponent implements AfterViewInit {
-  displayedColumns: string[] = ['item.catagory', 'owner.firstName', 'item.lostPlace', 'item.lostDate','status', 'registeredBy'];
+  displayedColumns: string[] = ['item.catagory', 'owner.firstName', 'item.lostPlace', 'item.lostDate',
+  'status', 'registeredBy', 'action'];
   dataSource: MatTableDataSource<Result>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -42,6 +44,11 @@ export class InquiryComponent implements AfterViewInit {
 // 
   constructor(public dialog: MatDialog, private router: Router,  private ngZone: NgZone, private inquiryService: InquiryService ) {
     // Create 100 users
+   this.getInquiries();
+    // Assign the data to the data source for the table to render
+    // this.dataSource = new MatTableDataSource(users);
+  }
+  getInquiries(){
     this.inquiryService.getInquiries().subscribe(res=>{ 
       console.log(res.results);
       this.isLoadingResults = true;
@@ -64,8 +71,15 @@ export class InquiryComponent implements AfterViewInit {
       this.dataSource.sort = this.sort;
     });
 
-    // Assign the data to the data source for the table to render
-    // this.dataSource = new MatTableDataSource(users);
+  }
+  action(inquiry: Inquiry){
+   
+    const dialogRef = this.dialog.open(InquiryActionComponent,{
+      data: {...inquiry}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+     this.getInquiries();
+    });
   }
  nestedProperty = (data: any, sortHeaderId: string): string |number =>{
   return sortHeaderId

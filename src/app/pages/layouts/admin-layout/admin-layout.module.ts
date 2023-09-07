@@ -49,6 +49,7 @@ import { AddInquiryDialogComponent } from 'app/shared/components/registration/ad
 import { CatagoryComponent } from 'app/pages/catagory/catagory.component';
 import { ConfirmDialogComponent } from 'app/shared/components/confirm-dialog/confirm-dialog.component';
 import { EditDialogComponent } from 'app/shared/components/edit-dialog/edit-dialog.component';
+import { InquiryActionComponent } from 'app/shared/components/inquiry-dialogs/inquiry-action/inquiry-action.component';
 
 @NgModule({
   imports: [
@@ -99,7 +100,7 @@ import { EditDialogComponent } from 'app/shared/components/edit-dialog/edit-dial
     AddInquiryDialogComponent,
     CatagoryComponent,
     EditDialogComponent,
-    
+    InquiryActionComponent,
 
 
   ],

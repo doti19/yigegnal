@@ -22,7 +22,7 @@ import { AddInquiryDialogComponent } from 'app/shared/components/registration/ad
 })
 export class PendingComponent implements AfterViewInit {
   displayedColumns: string[] = ['item.catagory', 'owner.firstName','owner.phoneNumber',
-                                  'foundedPlace', 'foundedDate', 'status'];
+                                  'foundedPlace', 'foundedDate', 'status', 'action'];
   dataSource: MatTableDataSource<Result>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
